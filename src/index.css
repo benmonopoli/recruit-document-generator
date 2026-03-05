@@ -1,0 +1,259 @@
+/* Custom Fonts */
+/* Add your own @font-face declarations here, or remove this section to use system fonts */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RDG Brand Design System */
+@layer base {
+  :root {
+    /* Brand colors */
+    --rdg-orange: 23 95% 53%;
+    --rdg-orange-hover: 23 95% 45%;
+    --rdg-blue: 215 100% 50%;
+    --rdg-dark: 220 13% 13%;
+    --rdg-gray: 220 13% 91%;
+    
+    /* Semantic colors */
+    --background: 0 0% 100%;
+    --foreground: 220 13% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 13%;
+
+    --primary: 23 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 96%;
+    --secondary-foreground: 220 13% 13%;
+
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 13% 46%;
+
+    --accent: 215 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 23 95% 53%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 13% 13%;
+    --sidebar-foreground: 220 13% 91%;
+    --sidebar-primary: 23 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 20%;
+    --sidebar-accent-foreground: 220 13% 91%;
+    --sidebar-border: 220 13% 20%;
+    --sidebar-ring: 23 95% 53%;
+
+    /* Chat interface */
+    --chat-user: 220 13% 96%;
+    --chat-assistant: 0 0% 100%;
+    --chat-border: 220 13% 91%;
+  }
+
+  .dark {
+    --background: 220 13% 10%;
+    --foreground: 220 13% 96%;
+
+    --card: 220 13% 13%;
+    --card-foreground: 220 13% 96%;
+
+    --popover: 220 13% 13%;
+    --popover-foreground: 220 13% 96%;
+
+    --primary: 23 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 20%;
+    --secondary-foreground: 220 13% 96%;
+
+    --muted: 220 13% 20%;
+    --muted-foreground: 220 13% 60%;
+
+    --accent: 215 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 23 95% 53%;
+
+    --sidebar-background: 220 13% 8%;
+    --sidebar-foreground: 220 13% 91%;
+    --sidebar-primary: 23 95% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 15%;
+    --sidebar-accent-foreground: 220 13% 91%;
+    --sidebar-border: 220 13% 15%;
+    --sidebar-ring: 23 95% 53%;
+
+    --chat-user: 220 13% 15%;
+    --chat-assistant: 220 13% 13%;
+    --chat-border: 220 13% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .rdg-gradient {
+    @apply bg-gradient-to-r from-primary to-accent;
+  }
+  
+  .rdg-card {
+    @apply bg-card border border-border rounded-lg shadow-sm;
+  }
+
+  .rdg-input {
+    @apply bg-background border border-input rounded-md px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+
+  .prose-content {
+    @apply max-w-none text-foreground;
+  }
+
+  .prose-content h1 {
+    @apply text-2xl font-bold mt-6 mb-4;
+  }
+
+  .prose-content h2 {
+    @apply text-xl font-semibold mt-5 mb-3;
+  }
+
+  .prose-content h3 {
+    @apply text-lg font-semibold mt-4 mb-2;
+  }
+
+  .prose-content ul {
+    @apply list-disc pl-6 my-3 space-y-1;
+  }
+
+  .prose-content ol {
+    @apply list-decimal pl-6 my-3 space-y-1;
+  }
+
+  .prose-content p {
+    @apply my-3 leading-relaxed;
+  }
+
+  .prose-content strong {
+    @apply font-semibold;
+  }
+
+  .prose-content code {
+    @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground));
+  }
+
+  .overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+/* Compact density mode */
+.density-compact {
+  --spacing-base: 0.75;
+}
+
+.density-compact .px-3 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.density-compact .py-2 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+.density-compact .p-3 {
+  padding: 0.5rem;
+}
+
+.density-compact .p-4 {
+  padding: 0.75rem;
+}
+
+.density-compact .p-6 {
+  padding: 1rem;
+}
+
+.density-compact .gap-3 {
+  gap: 0.5rem;
+}
+
+.density-compact .gap-4 {
+  gap: 0.75rem;
+}
+
+.density-compact .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0.75rem;
+}
+
+.density-compact .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem;
+}
+
+.density-compact .text-sm {
+  font-size: 0.8125rem;
+}
+
+.density-compact .text-xs {
+  font-size: 0.6875rem;
+}
